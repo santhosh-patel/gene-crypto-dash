@@ -1,5 +1,5 @@
-
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { TrendingUp } from "lucide-react";
@@ -12,18 +12,21 @@ interface CreditScoreProps {
 }
 
 const CreditScore: React.FC<CreditScoreProps> = ({ score, percentage, change, lastChecked }) => {
+  const navigate = useNavigate();
   const isGoodScore = score >= 660;
-  const circumference = 2 * Math.PI * 85; // 85 is the radius of the circle
+  const circumference = 2 * Math.PI * 85;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
   
   return (
-    <Card className="bg-card border-gray-800">
+    <Card 
+      className="bg-card border-gray-800 cursor-pointer transition-all hover:bg-gray-800/50"
+      onClick={() => navigate('/credit-score')}
+    >
       <CardHeader className="pt-4 px-4 pb-0">
         <CardTitle className="text-lg font-medium">Your credit score</CardTitle>
       </CardHeader>
       <CardContent className="p-4 flex flex-col items-center justify-center">
         <div className="relative w-48 h-48 flex items-center justify-center">
-          {/* Background circle */}
           <svg className="w-full h-full transform -rotate-90" viewBox="0 0 180 180">
             <circle 
               cx="90" 
@@ -33,7 +36,6 @@ const CreditScore: React.FC<CreditScoreProps> = ({ score, percentage, change, la
               stroke="#333" 
               strokeWidth="6"
             />
-            {/* Progress circle */}
             <circle 
               cx="90" 
               cy="90" 
@@ -50,7 +52,6 @@ const CreditScore: React.FC<CreditScoreProps> = ({ score, percentage, change, la
             />
           </svg>
           
-          {/* Text in the center */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-5xl font-bold">{score}</span>
             <div 

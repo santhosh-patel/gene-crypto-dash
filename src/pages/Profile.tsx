@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
@@ -13,11 +12,10 @@ import { User, Download, FileText, Clock, Eye, Bell, ShieldCheck } from "lucide-
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("info");
   
-  // User profile data (would come from API in a real application)
   const userData = {
-    name: "Ilona Smilquet",
-    email: "ilonacut46@gmail.com",
-    avatar: "public/lovable-uploads/8d28f839-6a85-4e94-9b81-5b308b07e52a.png",
+    name: "Nasir",
+    email: "nasir@example.com",
+    avatar: "/lovable-uploads/21ea94ff-68ff-4671-adb8-4a8295ddf3de.png",
     joinDate: "October 2023",
     kycStatus: "Verified",
     tradingVolume: "$152,487.25",
@@ -30,7 +28,6 @@ const Profile = () => {
     }
   };
   
-  // Sample transactions data
   const recentTransactions = [
     {
       id: "TX123456",
@@ -79,7 +76,6 @@ const Profile = () => {
     }
   ];
   
-  // Sample watchlist data
   const watchlistData = [
     {
       name: "Bitcoin",
@@ -115,7 +111,6 @@ const Profile = () => {
     }
   ];
   
-  // Sample reports data
   const savedReports = [
     {
       name: "Monthly Performance Report - April 2024",

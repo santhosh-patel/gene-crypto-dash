@@ -31,7 +31,7 @@ const Index: React.FC = () => {
 
   // User data (would come from API in a real application)
   const userData = {
-    name: "Ilona",
+    name: "Nasir",
     stats: {
       spentThisMonth: "$5,950.64",
       change24h: 2.34,
