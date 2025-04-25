@@ -1,9 +1,12 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Maximize } from "lucide-react";
 
-// This component will embed TradingView widget for Bitcoin chart
 const BitcoinChart: React.FC = () => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   React.useEffect(() => {
     // Create and append the TradingView widget script
     const script = document.createElement("script");
@@ -17,11 +20,11 @@ const BitcoinChart: React.FC = () => {
       "theme": "dark",
       "style": "1",
       "locale": "en",
-      "enable_publishing": false,
-      "hide_top_toolbar": true,
+      "enable_publishing": !isFullscreen,
+      "hide_top_toolbar": false,
       "hide_legend": false,
-      "save_image": false,
-      "calendar": false,
+      "save_image": true,
+      "calendar": true,
       "hide_volume": false,
       "support_host": "https://www.tradingview.com"
     });
@@ -37,7 +40,7 @@ const BitcoinChart: React.FC = () => {
       
       const widget = document.createElement("div");
       widget.className = "tradingview-widget-container__widget";
-      widget.style.height = "400px";
+      widget.style.height = isFullscreen ? "100vh" : "400px";
       
       widgetContainer.appendChild(widget);
       widgetContainer.appendChild(script);
@@ -50,15 +53,27 @@ const BitcoinChart: React.FC = () => {
         container.innerHTML = "";
       }
     };
-  }, []);
+  }, [isFullscreen]);
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
 
   return (
-    <Card className="bg-card border-gray-800 col-span-2">
-      <CardHeader className="pt-4 px-4 pb-0">
+    <Card className={`bg-card border-gray-800 ${isFullscreen ? 'fixed inset-0 z-50' : 'col-span-2'}`}>
+      <CardHeader className="pt-4 px-4 pb-0 flex flex-row items-center justify-between">
         <CardTitle className="text-lg font-medium">Bitcoin Chart</CardTitle>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleFullscreen}
+          className="hover:bg-gray-800"
+        >
+          <Maximize className="h-4 w-4" />
+        </Button>
       </CardHeader>
       <CardContent className="p-4">
-        <div id="tradingview-widget" className="h-[400px]"></div>
+        <div id="tradingview-widget" className={isFullscreen ? "h-[calc(100vh-80px)]" : "h-[400px]"}></div>
       </CardContent>
     </Card>
   );

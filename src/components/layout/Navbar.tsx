@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, DownloadIcon, User } from "lucide-react";
@@ -50,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ onDateRangeChange }) => {
   const userData = {
     name: "Ilona Smilquet",
     email: "ilonacut46@gmail.com",
-    image: "/lovable-uploads/dabb2207-48b7-4613-a805-72755ab06f0e.png",
+    image: "public/lovable-uploads/8d28f839-6a85-4e94-9b81-5b308b07e52a.png",
   };
 
   const handleDownload = () => {
