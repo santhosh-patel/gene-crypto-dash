@@ -6,7 +6,7 @@ import {
   LayoutDashboard, 
   FileText, 
   Bitcoin, 
-  Exchange, 
+  RefreshCcw, 
   MessageCircle, 
   ChartPie, 
   User, 
@@ -30,7 +30,7 @@ const sidebarItems = [
     label: "Crypto",
   },
   {
-    icon: Exchange,
+    icon: RefreshCcw,
     path: "/exchange",
     label: "Exchange",
   },
