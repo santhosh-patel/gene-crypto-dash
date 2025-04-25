@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -82,23 +83,39 @@ const Sidebar: React.FC = () => {
         <div className="flex flex-col items-center space-y-4">
           <Link
             to="/profile"
-            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-gray-800/50 transition-colors relative group"
+            className={cn(
+              "p-2 rounded-md transition-colors relative group",
+              location.pathname === "/profile"
+                ? "text-success bg-gray-800"
+                : "text-muted-foreground hover:text-primary hover:bg-gray-800/50"
+            )}
             title="Profile"
           >
             <User size={20} />
             <span className="absolute left-full ml-2 px-2 py-1 rounded-md bg-gray-800 text-xs whitespace-nowrap opacity-0 invisible transition-all group-hover:opacity-100 group-hover:visible">
               Profile
             </span>
+            {location.pathname === "/profile" && (
+              <span className="absolute left-0 w-1 h-full bg-success rounded-r-md"></span>
+            )}
           </Link>
           <Link
             to="/settings"
-            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-gray-800/50 transition-colors relative group"
+            className={cn(
+              "p-2 rounded-md transition-colors relative group",
+              location.pathname === "/settings"
+                ? "text-success bg-gray-800"
+                : "text-muted-foreground hover:text-primary hover:bg-gray-800/50"
+            )}
             title="Settings"
           >
             <Settings size={20} />
             <span className="absolute left-full ml-2 px-2 py-1 rounded-md bg-gray-800 text-xs whitespace-nowrap opacity-0 invisible transition-all group-hover:opacity-100 group-hover:visible">
               Settings
             </span>
+            {location.pathname === "/settings" && (
+              <span className="absolute left-0 w-1 h-full bg-success rounded-r-md"></span>
+            )}
           </Link>
         </div>
       </div>

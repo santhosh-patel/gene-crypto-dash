@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Calendar, DownloadIcon, User } from "lucide-react";
@@ -63,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ onDateRangeChange }) => {
         <div className="flex items-center gap-8">
           <Link to="/" className="text-2xl font-bold text-primary">
             <div className="h-8 w-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center">
-              P
+              R
             </div>
           </Link>
           
@@ -141,11 +142,15 @@ const Navbar: React.FC<NavbarProps> = ({ onDateRangeChange }) => {
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator className="bg-gray-800" />
-              <DropdownMenuItem className="cursor-pointer">
-                <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+              <DropdownMenuItem className="cursor-pointer" asChild>
+                <Link to="/profile">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Profile</span>
+                </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">Settings</DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" asChild>
+                <Link to="/settings">Settings</Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator className="bg-gray-800" />
               <DropdownMenuItem className="cursor-pointer">Logout</DropdownMenuItem>
             </DropdownMenuContent>
