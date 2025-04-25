@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'sans-serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				success: {
+					DEFAULT: '#10B981',
+					foreground: '#F0FDF4'
+				},
+				warning: {
+					DEFAULT: '#F59E0B', 
+					foreground: '#FFFBEB'
+				},
+				danger: {
+					DEFAULT: '#EF4444',
+					foreground: '#FEF2F2'
+				},
+				bitcoin: '#F7931A',
+				ethereum: '#627EEA',
+				cardano: '#0033AD',
+				digibyte: '#0066CC',
+				chart: {
+					bitcoin: '#10B981',
+					ethereum: '#C7EB12'
 				}
 			},
 			borderRadius: {
@@ -84,11 +108,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'progress': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'progress': 'progress 2s ease infinite'
 			}
 		}
 	},
