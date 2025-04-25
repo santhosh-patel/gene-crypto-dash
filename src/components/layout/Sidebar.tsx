@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -8,7 +7,6 @@ import {
   Bitcoin, 
   RefreshCcw, 
   MessageCircle, 
-  ChartPie, 
   User, 
   Settings,
 } from "lucide-react";
@@ -51,7 +49,7 @@ const Sidebar: React.FC = () => {
           <div className="mb-4">
             <Link to="/" className="text-2xl font-bold text-primary">
               <div className="h-8 w-8 bg-success text-success-foreground rounded-md flex items-center justify-center">
-                P
+                R
               </div>
             </Link>
           </div>
