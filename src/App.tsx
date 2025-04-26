@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import CreditScorePage from "./pages/CreditScorePage";
 import LandingPage from "./pages/LandingPage";
 import AllPaymentsPage from "./pages/AllPaymentsPage";
+import TradingViewDashboard from "./pages/TradingViewDashboard";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +38,7 @@ const App = () => (
           <Route path="/settings" element={<Settings />} />
           <Route path="/credit-score" element={<CreditScorePage />} />
           <Route path="/payments" element={<AllPaymentsPage />} />
+          <Route path="/tradingview" element={<TradingViewDashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

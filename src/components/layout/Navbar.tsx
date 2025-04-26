@@ -28,6 +28,7 @@ const navLinks = [
   { name: "Cryptocurrency", path: "/cryptocurrency" },
   { name: "Exchange", path: "/exchange" },
   { name: "Community", path: "/community" },
+  { name: "TradingView", path: "/tradingview" },
 ];
 
 interface NavbarProps {
