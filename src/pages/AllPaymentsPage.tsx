@@ -278,12 +278,12 @@ const AllPaymentsPage: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="w-full md:w-auto">
                     <Input
-                      placeholder="Search by coin name or symbol"
-                      className="bg-gray-800/50 border-gray-700"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      prefix={<Search className="h-4 w-4 text-muted-foreground" />}
-                    />
+  placeholder="Search by coin name or symbol"
+  className="bg-gray-800/50 border-gray-700"
+  value={searchQuery}
+  onChange={(e) => setSearchQuery(e.target.value)}
+  prefix="🔍" // Use a string, like an emoji or text
+/>
                   </div>
                   
                   <Select value={filterCoin} onValueChange={setFilterCoin}>
