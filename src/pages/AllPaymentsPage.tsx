@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
@@ -43,6 +42,7 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { format } from "date-fns";
+import { DateRange } from "react-day-picker";
 
 // Mock data for transactions
 const transactions = [
@@ -325,9 +325,12 @@ const AllPaymentsPage: React.FC = () => {
                       mode="range"
                       defaultMonth={dateRange.from}
                       selected={dateRange}
-                      onSelect={(newDateRange) => {
+                      onSelect={(newDateRange: DateRange | undefined) => {
                         if (newDateRange?.from && newDateRange?.to) {
-                          setDateRange(newDateRange);
+                          setDateRange({
+                            from: newDateRange.from,
+                            to: newDateRange.to
+                          });
                         }
                       }}
                       className="p-3"

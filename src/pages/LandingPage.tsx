@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Chart, CreditCard, TrendingUp, MessageCircle, FileText } from "lucide-react";
+import { ChartBarIcon, CreditCard, TrendingUp, MessageCircle, FileText } from "lucide-react";
 import AppLogo from "@/components/common/AppLogo";
 
 const LandingPage = () => {
