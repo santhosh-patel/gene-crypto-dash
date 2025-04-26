@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -62,7 +61,7 @@ const LandingPage = () => {
             <Card className="border-gray-700 bg-gray-800/50 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mb-4">
-                  <Chart className="h-6 w-6 text-purple-400" />
+                  <ChartBarIcon className="h-6 w-6 text-purple-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Crypto Dashboard</h3>
                 <p className="text-gray-400">

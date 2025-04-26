@@ -1,8 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import Reports from "./pages/Reports";
 import Cryptocurrency from "./pages/Cryptocurrency";
@@ -19,7 +20,15 @@ import TradingViewDashboard from "./pages/TradingViewDashboard";
 const queryClient = new QueryClient();
 
 // Simulating authentication for demo purposes
-const isAuthenticated = true; // In a real app, this would be determined by an auth system
+const isAuthenticated = false; // Set to false by default to show landing page
+
+// Protected Route component
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+  return <>{children}</>;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -28,17 +37,87 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={isAuthenticated ? <Index /> : <LandingPage />} />
-          <Route path="/dashboard" element={<Index />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/cryptocurrency" element={<Cryptocurrency />} />
-          <Route path="/exchange" element={<Exchange />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/credit-score" element={<CreditScorePage />} />
-          <Route path="/payments" element={<AllPaymentsPage />} />
-          <Route path="/tradingview" element={<TradingViewDashboard />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Index />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute>
+                <Reports />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/cryptocurrency"
+            element={
+              <ProtectedRoute>
+                <Cryptocurrency />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/exchange"
+            element={
+              <ProtectedRoute>
+                <Exchange />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/community"
+            element={
+              <ProtectedRoute>
+                <Community />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/credit-score"
+            element={
+              <ProtectedRoute>
+                <CreditScorePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/payments"
+            element={
+              <ProtectedRoute>
+                <AllPaymentsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tradingview"
+            element={
+              <ProtectedRoute>
+                <TradingViewDashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
