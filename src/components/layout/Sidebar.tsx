@@ -11,6 +11,7 @@ import {
   User, 
   Settings,
 } from "lucide-react";
+import AppLogo from "@/components/common/AppLogo";
 
 const sidebarItems = [
   {
@@ -48,10 +49,8 @@ const Sidebar: React.FC = () => {
       <div className="flex flex-col items-center justify-between h-full">
         <div className="flex flex-col items-center space-y-8">
           <div className="mb-4">
-            <Link to="/" className="text-2xl font-bold text-primary">
-              <div className="h-8 w-8 bg-success text-success-foreground rounded-md flex items-center justify-center">
-                R
-              </div>
+            <Link to="/" className="flex items-center justify-center">
+              <AppLogo className="h-8 w-8" />
             </Link>
           </div>
           

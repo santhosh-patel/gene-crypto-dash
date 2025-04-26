@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,8 +13,13 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import CreditScorePage from "./pages/CreditScorePage";
+import LandingPage from "./pages/LandingPage";
+import AllPaymentsPage from "./pages/AllPaymentsPage";
 
 const queryClient = new QueryClient();
+
+// Simulating authentication for demo purposes
+const isAuthenticated = true; // In a real app, this would be determined by an auth system
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -22,7 +28,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={isAuthenticated ? <Index /> : <LandingPage />} />
+          <Route path="/dashboard" element={<Index />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/cryptocurrency" element={<Cryptocurrency />} />
           <Route path="/exchange" element={<Exchange />} />
@@ -30,6 +37,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/credit-score" element={<CreditScorePage />} />
+          <Route path="/payments" element={<AllPaymentsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

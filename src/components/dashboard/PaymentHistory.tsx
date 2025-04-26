@@ -2,7 +2,9 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { CheckCircle, XCircle } from "lucide-react";
+import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface Payment {
   id: string;
@@ -68,6 +70,8 @@ interface PaymentHistoryProps {
 }
 
 const PaymentHistory: React.FC<PaymentHistoryProps> = ({ className }) => {
+  const navigate = useNavigate();
+
   return (
     <Card className={cn("bg-card border-gray-800", className)}>
       <CardHeader className="pt-4 px-4 pb-0">
@@ -122,6 +126,16 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ className }) => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-4 flex justify-end">
+          <Button
+            onClick={() => navigate("/payments")}
+            className="bg-purple-600 hover:bg-purple-700 text-white flex items-center gap-2"
+          >
+            Show All Payments
+            <ArrowRight className="h-4 w-4" />
+          </Button>
         </div>
       </CardContent>
     </Card>

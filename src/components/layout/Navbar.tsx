@@ -20,6 +20,7 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import AppLogo from "@/components/common/AppLogo";
 
 const navLinks = [
   { name: "Dashboard", path: "/" },
@@ -48,8 +49,8 @@ const Navbar: React.FC<NavbarProps> = ({ onDateRangeChange }) => {
   }, [date, onDateRangeChange]);
 
   const userData = {
-    name: "Ilona Smilquet",
-    email: "ilonacut46@gmail.com",
+    name: "Nasir",
+    email: "nasir@gmail.com",
     image: "public/lovable-uploads/8d28f839-6a85-4e94-9b81-5b308b07e52a.png",
   };
 
@@ -62,10 +63,8 @@ const Navbar: React.FC<NavbarProps> = ({ onDateRangeChange }) => {
     <header className="border-b border-gray-800 bg-background">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <div className="flex items-center gap-8">
-          <Link to="/" className="text-2xl font-bold text-primary">
-            <div className="h-8 w-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center">
-              R
-            </div>
+          <Link to="/" className="flex items-center">
+            <AppLogo className="h-8 w-auto" />
           </Link>
           
           <nav className="hidden md:flex items-center space-x-4">
